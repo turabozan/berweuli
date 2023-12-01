@@ -8,6 +8,7 @@ django = "==3.1.5"
 django-autoslug = "*"
 django-resized = "*"
 pillow = "*"
+django-modeltranslation = "==0.18.10"
 
 [dev-packages]
 

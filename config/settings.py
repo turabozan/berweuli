@@ -24,6 +24,7 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -89,9 +90,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'tr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Istanbul'
 
 USE_I18N = True
 
@@ -108,3 +109,31 @@ DJANGORESIZED_DEFAULT_KEEP_META = True
 DJANGORESIZED_DEFAULT_FORCE_FORMAT = 'JPEG'
 DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'JPEG': ".jpg"}
 DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
+
+
+
+# setting languages
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('ar', 'Arabic'),
+    ('tr', 'Turkish'),
+)
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'tr'
+
+MODELTRANSLATION_LANGUAGES = ('tr', 'en', 'ar')
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+
+    # Put your context processors here
+
+    'django.core.context_processors.request',
+)
+
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
