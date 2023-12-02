@@ -10,4 +10,3 @@ class MenuAdmin(TranslationAdmin):
     list_display = ('order', 'category', 'name', 'price',)
     list_editable = ('name', 'price',)
     search_fields = ('category__name',)
-    #list_per_page = 5
