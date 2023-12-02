@@ -2,7 +2,9 @@ from django.contrib import admin
 from berweuli.models import CategoryModel, MenuModel, SauceModel
 from modeltranslation.admin import TranslationAdmin
 
-admin.site.register(CategoryModel)
+@admin.register(CategoryModel)
+class CategoryAdmin(TranslationAdmin):
+    list_display = ('order', 'name', )
 
 
 @admin.register(MenuModel)
@@ -12,5 +14,5 @@ class MenuAdmin(TranslationAdmin):
     search_fields = ('category__name',)
 
 @admin.register(SauceModel)
-class SouceAdmin(admin.ModelAdmin):
+class SouceAdmin(TranslationAdmin):
     list_display = ('order','name', )

@@ -8,7 +8,6 @@ class CategoryModel(models.Model):
         help_text='Kategorilerin sıralanması için buradan sıra numarası verilmesi gerekiyor.',
     )
     name = models.CharField(max_length=100, blank=False, null=False,)
-    slug = AutoSlugField(populate_from='name', unique=True)
     categoryData = models.CharField(max_length=100, blank=False, null=False)
     menuData = models.CharField(max_length=100, blank=False, null= False)
 

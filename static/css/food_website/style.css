@@ -746,6 +746,7 @@ p {
     top: 12px;
     min-height: 50px;
     z-index: -1;
+    transform: translate(10px, -4px);
 }
 
 .menu-tab ul li img {
@@ -756,7 +757,6 @@ p {
 
 .menu-tab ul .filter-active {
     color: #ffffff;
-    /*background: linear-gradient(145deg, #e3a92b, #ffc933);*/
     background: #94cf25;
 }
 
@@ -1126,7 +1126,7 @@ p {
 #language{
     margin-top: 5px;
     border-color:#ff8243 ;
-    border-width: 5px;
+    border-width: 3px;
 }
 
 /* *************** */

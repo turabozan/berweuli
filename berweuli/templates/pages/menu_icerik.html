@@ -125,10 +125,23 @@
                                     <div class="menu-tab text-center ">
                                         <ul class="filters">
                                             <div class="filter-active"></div>
-                                            <li class="filter" data-filter=".kahvalti" id="dene">
-                                                Kahvaltı
-                                            </li>
-                                            <li class="filter" data-filter=".soup">Çorbalar</li>
+                                            
+                                            {% for category in categories %}
+                                                
+                                                {% if forloop.first %}
+                                                <li class="filter" data-filter=".{{category.categoryData}}" id="dene">
+                                                    {{category.name}}
+                                                </li>
+                                                {% else %}
+                                                <li class="filter" data-filter=".{{category.categoryData}}">
+                                                    {{category.name}}
+                                                </li>
+                                                {% endif %}
+                                                    
+                                            {% endfor %}
+                                                
+                                            
+                                            <!-- <li class="filter" data-filter=".soup">Çorbalar</li>
                                             <li class="filter" data-filter=".zeytinyagli">
                                                 Zeytinyağlılar
                                             </li>
@@ -147,7 +160,7 @@
                                             </li>
                                             <li class="filter" data-filter=".soguk">
                                                 Soğuk İçecekler
-                                            </li>
+                                            </li> -->
                                         </ul>
                                     </div>
                                 </div>

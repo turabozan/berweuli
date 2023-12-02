@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from berweuli.models import MenuModel, SauceModel
+from berweuli.models import MenuModel, SauceModel, CategoryModel
 from urllib.parse import urlparse
 from django.conf import settings
 from django.http import HttpResponseRedirect
@@ -10,9 +10,11 @@ from django.utils import translation
 def menu_icerik(request):
     menuler = MenuModel.objects.all()
     sauces = SauceModel.objects.all()
+    categories = CategoryModel.objects.all()
     return render(request, 'pages/menu_icerik.html', context={
         'menuler': menuler,
-        'sauces': sauces
+        'sauces': sauces,
+        'categories': categories,
         })
 
 def set_language(request, language):
