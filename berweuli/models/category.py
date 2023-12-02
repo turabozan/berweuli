@@ -20,13 +20,3 @@ class CategoryModel(models.Model):
 
     def __str__(self):
         return self.name
-
-    # public int CategoryID { get; set; }
-    #     public string ImageUrl { get; set; }
-    #     public string Title { get; set; }
-    #     public string? TitleEn { get; set; }
-    #     public string? TitleAe { get; set; }
-    #     public string? categoryData { get; set; }
-    #     public string MenuData { get; set; }
-
-    #     public List<Food> Foods { get; set; }

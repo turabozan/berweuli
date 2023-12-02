@@ -1,5 +1,6 @@
 from django.db import models
 from .category import CategoryModel
+from .sauce import SauceModel
 from django_resized import ResizedImageField
 
 class ImageQuerySet(models.QuerySet):
@@ -41,6 +42,8 @@ class MenuModel(models.Model):
         on_delete=models.CASCADE,
         related_name="menu",
     )
+
+    souces = models.ManyToManyField(SauceModel, related_name='souces', blank=True)
 
     class Meta:
         db_table = 'Menü'

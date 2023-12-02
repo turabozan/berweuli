@@ -1,0 +1,280 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'components/header_menu.html' %}
+
+<!-- Option 1: Include in HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<body class="body-fixed">
+    <style>
+        .sauce_bttm {
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+
+        .sauce_name {
+            color: #bfbfbf;
+        }
+
+        .border-bttm {
+            border-bottom: 2px solid rgb(204 204 204 / 30%);
+        }
+
+        .soslarr {
+            display: none;
+        }
+
+        .sos {
+            cursor: pointer;
+        }
+
+        .img-cerceve {
+            border: 1px solid #c12b2c;
+        }
+
+        .img-center {
+            height: 200px;
+        }
+
+        .sub-mb {
+            margin-bottom: -23px;
+        }
+
+        #scroll_position {
+            visibility: hidden;
+        }
+
+        .bg-light {
+            border: 1px solid #c12b2c !important;
+        }
+
+        .filters {
+            border: 1px solid #c12b2c;
+        }
+
+        @media (max-width: 400px) {
+            .img-center {
+                height: 150px;
+            }
+
+            .h2-title {
+                font-size: 23px;
+            }
+        }
+    </style>
+    <div id="viewport">
+        <div id="js-scroll-content">
+
+            <section class="our-menu section  repeat-img " id="menu">
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row sub-mb">
+                            <div class="col-lg-12">
+                                <div class="sec-title text-center mb-5">
+                                    <img class="img-center" src="{% static 'images/logo/big_logo.png' %}" />
+                                    <h4 class="h2-title">
+                                        lezzet diyarına hoşgeldiniz
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-tab-wp">
+                            <div class="row">
+                                <div class="col-lg-12 m-auto">
+                                    <div class="menu-tab text-center ">
+                                        <ul class="filters">
+                                            <div class="filter-active"></div>
+                                            <li class="filter" data-filter=".kahvalti" id="dene">
+                                                Kahvaltı
+                                            </li>
+                                            <li class="filter" data-filter=".soup">Çorbalar</li>
+                                            <li class="filter" data-filter=".zeytinyagli">
+                                                Zeytinyağlılar
+                                            </li>
+                                            <li class="filter" data-filter=".pilav">Pilavlar</li>
+                                            <li class="filter" data-filter=".makarna">Makarnalar</li>
+                                            <li class="filter" data-filter=".anayemek">
+                                                Spesiyel Ana Yemekler
+                                            </li>
+                                            <li class="filter" data-filter=".osmanli">
+                                                Osmanlı Saray Mutfağı
+                                            </li>
+                                            <li class="filter" data-filter=".salata">Salatalar</li>
+                                            <li class="filter" data-filter=".tatli">Tatlılar</li>
+                                            <li class="filter" data-filter=".sicak">
+                                                Sıcak İçecekler
+                                            </li>
+                                            <li class="filter" data-filter=".soguk">
+                                                Soğuk İçecekler
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-list-row">
+                            <div class="row g-xxl-5" id="menu-dish">
+
+                                <button class="scrolltop" id="scroll_position">
+                                    <i class="uil uil-angle-up"></i>
+                                </button>
+
+
+                                {% for menu in menuler %}
+                                <div class="col-lg-4 col-sm-6 dish-box-wp {{ menu.category.categoryData}}"
+                                    data-cat="{{ menu.category.categoryData}}">
+                                    <div class="dish-box text-center bg-light">
+                                        <div class="dist-img ">
+                                            <img class="img-cerceve" src="{{ menu.image.url }}" alt="{{menu.name}}"
+                                                alt="{{menu.name}}" />
+                                        </div>
+                                        <div class="dish-title">
+                                            <h3 class="h5-title">{{menu.name}}</h3>
+                                            <p>
+                                                {{menu.content}}
+                                            </p>
+                                        </div>
+                                        <div class="dish-info">
+
+
+
+                                            {% if menu.souces.all %}
+                                            <h6 class="sos"> EKSTRA SOSLAR <i class="bi bi-arrow-down-circle"></i> </h6>
+                                            {% for sos in menu.souces.all %}
+                                            <div class="soslarr">
+                                                <div class="row border-bttm">
+                                                    <div class="col-6 sauce_name sauce_bttm">
+                                                        {{ sos.name}} :
+                                                    </div>
+                                                    <div class="col-6 sauce_bttm ">
+                                                        ₺ {{sos.price}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            {% endfor %}
+                                            {% endif %}
+                                            
+                                            <ul>
+                                                <li>
+                                                    <p>Süre</p>
+                                                    <b>{{menu.cookingTime}}</b>
+                                                </li>
+                                                <li>
+                                                    <p>Fiyat</p>
+                                                    <b>₺ {{menu.price}}</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                var hedefButon = document.getElementById("dene");
+                hedefButon.click(); // Butona tıklama işlemi
+            }, 100)
+
+
+        });
+
+        $(document).ready(function () {
+            $(".sos").click(function () {
+
+                $(".soslarr").slideToggle("slow", "linear");
+
+
+                // İlgili sınıf adına sahip tüm div elemanlarını seçin
+                const myDivs = document.getElementsByClassName("soslarr");
+
+                // Her bir div elemanına yeni bir sınıf ekleyin
+                for (let i = 0; i < myDivs.length; i++) {
+                    myDivs[i].classList.add("deneme");
+                }
+
+                const icons = document.querySelectorAll('h6 i');
+                for (let i = 0; i < icons.length; i++) {
+                    icons[i].classList.toggle('bi-arrow-down-circle');
+                    icons[i].classList.toggle('bi-arrow-up-circle');
+                }
+            });
+        });
+
+        $(window).scroll(function (event) {
+            var scroll = $(window).scrollTop();
+            if (scroll < 750) {
+                document.getElementById("scroll_position").style.visibility = "hidden";
+            }
+            else {
+                document.getElementById("scroll_position").style.visibility = "visible";
+            }
+        });
+
+
+
+
+    </script>
+
+
+    <!-- jquery  -->
+    <script src="{% static 'js/food_website/jquery-3.5' %}.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="{% static 'js/food_website/bootstrap.min.js' %}"></script>
+    <!-- <script src="{% static 'js/food_website/popper.min.js' %}"></script> -->
+
+    <!-- fontawesome  -->
+    <script src="{% static 'js/food_website/font-awesome.min' %}.js"></script>
+
+    <!-- swiper slider  -->
+    <script src="{% static 'js/food_website/swiper-bundle.min' %}.js"></script>
+
+    <!-- mixitup -- filter  -->
+    <script src="{% static 'js/food_website/jquery.mixitup.min' %}.js"></script>
+
+    <!-- fancy box  -->
+    <!-- <script src="{% static 'js/food_website/jquery.fancybox.min' %}.js"></script> -->
+
+    <!-- parallax  -->
+    <script src="{% static 'js/food_website/parallax.min.js' %}"></script>
+
+    <!-- gsap  -->
+    <script src="{% static 'js/food_website/gsap.min.js' %}"></script>
+
+    <!-- scroll trigger  -->
+    <script src="{% static 'js/food_website/ScrollTrigger.min.js' %}"></script>
+    <!-- scroll to plugin  -->
+    <script src="{% static 'js/food_website/ScrollToPlugin.min.js' %}"></script>
+    <!-- rellax  -->
+    <!-- <script src="assets/js/rellax.min.js"></script> -->
+    <!-- <script src="assets/js/rellax-custom.js"></script> -->
+    <!-- smooth scroll  -->
+    <script src="{% static 'js/food_website/smooth-scroll.js' %}"></script>
+    <!-- custom js  -->
+    <script src="{% static 'js/food_website/main.js' %}"></script>
+</body>
+
+</html>
