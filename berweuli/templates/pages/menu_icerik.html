@@ -68,7 +68,44 @@
     </style>
     <div id="viewport">
         <div id="js-scroll-content">
+            <div class="row" style="position: fixed; top: 0; z-index: 999; background-color: white; width: 102%;">
+                <div class="col-9" style="display: flex;
+                justify-content: space-around;">
 
+                    <div class="social-icon">
+                        <ul>
+                            <li>
+                                <a href="https://www.facebook.com/people/Berweuli-Ala-Carte/100063538059915/" target="_blank">
+                                    <i class="uil uil-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/berweulialacarte/" target="_blank">
+                                    <i class="uil uil-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.google.com/search?q=berweuli+&rlz=1C1YTUH_trTR1025TR1025&sxsrf=APwXEddLfGlvB_Fc5bvJaOs2ank2kx4EAg%3A1681468196974&ei=JCs5ZO77Oqvlxc8P-YiesAY&ved=0ahUKEwjundOUlan-AhWrcvEDHXmEB2YQ4dUDCA8&uact=5&oq=berweuli+&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgQIABAeMgQIABAeOggIABCiBBCwAzoLCAAQiQUQogQQsANKBAhBGAFQ0ANY3wRglQZoAXAAeACAAakBiAHAApIBAzAuMpgBAKABAcgBBcABAQ&sclient=gws-wiz-serp#lrd=0x40643c4894b86095:0x92cf98947ff89c47,3,,,," target="_blank">
+                                    <i class="uil uil-google"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/berweuli2018" target="_blank">
+                                    <i class="uil uil-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <select  name="language" class="navbar-actions-wrap" id="language" onchange="location = this.value;">
+                        <option {% if request.get_full_path == ''  %} selected {% endif %} value="{% url 'set-language' 'tr' %}">Türkçe</option>
+                        <option {% if request.get_full_path == '/en/menu'  %} selected {% endif %} value="{% url 'set-language' 'en' %}">English</option>
+                        <option {% if request.get_full_path == '/ar/menu'  %} selected {% endif %} value="{% url 'set-language' 'ar' %}">عربي</option>
+                    </select>
+                </div>
+            </div>
+            
             <section class="our-menu section  repeat-img " id="menu">
                 <div class="sec-wp">
                     <div class="container">

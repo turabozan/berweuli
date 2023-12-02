@@ -1086,7 +1086,7 @@ p {
 }
 
 .social-icon {
-    margin: 15px 0px 10px;
+    margin: 6px 0px 10px;
 }
 
 .social-icon ul li {
@@ -1103,8 +1103,8 @@ p {
 }
 
 .social-icon ul li a {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -1121,6 +1121,12 @@ p {
 
 .social-icon ul li a:hover i {
     color: #ffffff !important;
+}
+
+#language{
+    margin-top: 5px;
+    border-color:#ff8243 ;
+    border-width: 5px;
 }
 
 /* *************** */
@@ -1826,7 +1832,7 @@ p {
         padding: 0 15px;
     }
     .section {
-        margin-top: -10px;
+        margin-top: 35px;
         padding-top: 15px;
         padding-bottom: 60px;
     }
