@@ -1,14 +1,14 @@
 from .base import *
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 DEBUG = True
 
 
 AUTH_PASSWORD_VALIDATORS = [
 ]
-
+ 
 
 DATABASES = {
     'default': {
