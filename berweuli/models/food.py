@@ -17,6 +17,9 @@ class MenuModel(models.Model):
         default=0,
         help_text='Menülerin sıralanması için buradan sıra numarası verilmesi gerekiyor.',
     )
+
+    gluten = models.BooleanField(default=False)
+
     name = models.CharField(
         max_length=100,
         blank=False,

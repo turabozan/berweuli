@@ -100,8 +100,8 @@
                 <div class="col-3">
                     <select  name="language" class="navbar-actions-wrap" id="language" onchange="location = this.value;">
                         <option {% if request.get_full_path == ''  %} selected {% endif %} value="{% url 'set-language' 'tr' %}">Türkçe</option>
-                        <option {% if request.get_full_path == '/en/menu'  %} selected {% endif %} value="{% url 'set-language' 'en' %}">English</option>
-                        <option {% if request.get_full_path == '/ar/menu'  %} selected {% endif %} value="{% url 'set-language' 'ar' %}">عربي</option>
+                        <option {% if request.get_full_path == '/en/'  %} selected {% endif %} value="{% url 'set-language' 'en' %}">English</option>
+                        <option {% if request.get_full_path == '/ar/'  %} selected {% endif %} value="{% url 'set-language' 'ar' %}">عربي</option>
                     </select>
                 </div>
             </div>
@@ -139,28 +139,6 @@
                                                 {% endif %}
                                                     
                                             {% endfor %}
-                                                
-                                            
-                                            <!-- <li class="filter" data-filter=".soup">Çorbalar</li>
-                                            <li class="filter" data-filter=".zeytinyagli">
-                                                Zeytinyağlılar
-                                            </li>
-                                            <li class="filter" data-filter=".pilav">Pilavlar</li>
-                                            <li class="filter" data-filter=".makarna">Makarnalar</li>
-                                            <li class="filter" data-filter=".anayemek">
-                                                Spesiyel Ana Yemekler
-                                            </li>
-                                            <li class="filter" data-filter=".osmanli">
-                                                Osmanlı Saray Mutfağı
-                                            </li>
-                                            <li class="filter" data-filter=".salata">Salatalar</li>
-                                            <li class="filter" data-filter=".tatli">Tatlılar</li>
-                                            <li class="filter" data-filter=".sicak">
-                                                Sıcak İçecekler
-                                            </li>
-                                            <li class="filter" data-filter=".soguk">
-                                                Soğuk İçecekler
-                                            </li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -183,6 +161,11 @@
                                                 alt="{{menu.name}}" />
                                         </div>
                                         <div class="dish-title">
+                                            
+                                            {% if menu.gluten == True %}
+                                                <img style="width: 140px; margin: -80px -235px 0 0; transform: rotate(330deg);" src="{% static 'images/gluten/gluten.png' %}" alt="">
+                                            {% endif %}
+                                                
                                             <h3 class="h5-title">{{menu.name}}</h3>
                                             <p>
                                                 {{menu.content}}
