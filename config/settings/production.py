@@ -1,7 +1,7 @@
 from .base import *
 
 
-ALLOWED_HOSTS = ['berweuli.com', '3.70.160.222']
+ALLOWED_HOSTS = ['berweuli.com', '3.69.30.115']
 
 DEBUG = False
 
